@@ -1,11 +1,11 @@
 'use strict';
 
-import {EventEmmitter} from 'events';
+import {EventEmitter} from 'events';
 
 import * as axiosUtils from './utils/axiosUtils';
 import * as layerUtils from './utils/layerUtils';
 import * as decodedUtils from './utils/decodeUtils';
-import * as Path from './utils/pathUtils';
+import * as pathUtils from './utils/pathUtils';
 
 import SymbolStore from './globals/SymbolStore';
 import Color from './data/Color';
@@ -13,7 +13,7 @@ import Style from './data/Style';
 import SvgStyle from './data/SvgStyle';
 import TextStyle from './data/TextStyle';
 
-class SDK extends EventEmmitter {
+class SDK extends EventEmitter{
     constructor(document) {
         super(document);        
         Object.assign(this, axiosUtils, layerUtils, decodedUtils, pathUtils);
@@ -27,4 +27,4 @@ class SDK extends EventEmmitter {
     
 }
 
-export default SDK;
+window.SketchSDK = SDK;
