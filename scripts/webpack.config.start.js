@@ -5,9 +5,6 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const projectRoot = fs.realpathSync(process.cwd())
-const resolve = relativePath => path.resolve(projectRoot, relativePath)
-
 module.exports = {
 	devtool: 'cheap-module-source-map',
 	entry: resolve('src/index.js'),

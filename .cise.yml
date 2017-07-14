@@ -1,0 +1,19 @@
+default:
+  prepare:
+    exec:
+      - 'ls ~/nvm || git clone http://gitlab.alibaba-inc.com/node/nvm.git ~/nvm'
+      - echo source ~/nvm/nvm.sh >> ~/.bashrc
+      - nvm install 4.4.2
+      - nvm alias default 4.4.2
+      - 'npm i tnpm@4 -g --registry=http://registry.npm.alibaba-inc.com'
+      - tnpm install
+  unit_test:
+    exec:
+      - echo "执行集成环境的测试任务"
+      - tnpm run ci-test
+      - echo "上报测试结果"
+      - tnpm i -g @alife/ci-test
+      - ci-test report karma
+      - echo "上报测试覆盖率"
+      - tnpm i -g @alife/ci-coverage
+      - ci-coverage report
