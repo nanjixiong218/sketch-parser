@@ -26,5 +26,3 @@ class SDK extends EventEmitter{
     static TextStyle = TextStyle;
     
 }
-
-window.SketchSDK = SDK;
