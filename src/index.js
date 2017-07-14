@@ -1,6 +1,30 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+'use strict';
 
-import Document from './Document'
+import {EventEmmitter} from 'events';
 
-ReactDOM.render(<Document />, document.querySelector("#app"))
+import * as axiosUtils from './utils/axiosUtils';
+import * as layerUtils from './utils/layerUtils';
+import * as decodedUtils from './utils/decodeUtils';
+import * as Path from './utils/pathUtils';
+
+import SymbolStore from './globals/SymbolStore';
+import Color from './data/Color';
+import Style from './data/Style';
+import SvgStyle from './data/SvgStyle';
+import TextStyle from './data/TextStyle';
+
+class SDK extends EventEmmitter {
+    constructor(document) {
+        super(document);        
+        Object.assign(this, axiosUtils, layerUtils, decodedUtils, pathUtils);
+    }
+
+    static SymbolStore = SymbolStore
+    static Color = Color;
+    static Style = Style;
+    static SvgStyle = SvgStyle;
+    static TextStyle = TextStyle;
+    
+}
+
+export default SDK;

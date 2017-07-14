@@ -13,6 +13,5 @@ class SymbolStore {
 
 }
 
-const instance = new SymbolStore()
 
-export default instance
+export default SymbolStore;

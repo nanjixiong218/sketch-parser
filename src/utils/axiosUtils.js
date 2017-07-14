@@ -18,8 +18,16 @@ axiosJSON.interceptors.request.use(config => {
 })
 axiosJSON.interceptors.response.use(response => {
 	return response.data
-})
+});
+
+const fetchPages = function(json) {
+	const document = await axiosJSON.get('document.json');
+	const pages = await Promise.all(document.pages.map(page => axiosJSON.get(page._ref)));
+	return pages;
+}
+
 
 export {
-	axiosJSON
+	axiosJSON,
+	fetchPages
 }
