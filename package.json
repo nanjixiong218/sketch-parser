@@ -55,7 +55,7 @@
     "karma-mocha-reporter": "^2.0.4",
     "karma-sinon": "^1.0.5",
     "karma-webdriver-launcher": "^1.0.4",
-    "karma-webpack": "^1.7.0",
+    "karma-webpack": "^2.0.0",
     "karma-json-reporter": "^1.2.0",
     "react": "^15.4.0",
     "react-addons-test-utils": "^15.4.0",
